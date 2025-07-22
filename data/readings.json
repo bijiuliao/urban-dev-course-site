@@ -3,7 +3,7 @@
     "readings": [
       {
         "title": "3.2 The new international division of labour",
-        "summary": {
+        "summary": 
   "title": "新國際分工 (NIDL) 簡要摘要",
   "definition": {
     "text": "新國際分工 (NIDL) 是全球化浪潮下形成的**全球經濟重組**，它標誌著跨洲流動與社會互動的規模擴大、速度加快及影響加深。",
@@ -70,7 +70,7 @@
     "citations": [18, 19]
   },
   "analogy": "簡而言之，NIDL 像是一張**不斷擴展且相互交織的全球網絡**，它帶來了前所未有的連結與流動，重塑了世界的經濟地圖，但同時也伴隨著新的不平等、不穩定與挑戰，因此需要更宏觀的協調與治理來引導這股巨大的力量。"
-}
+
         "title": "3.3 Global shift: Industrialization and development",
         "summary": "哈哈"
       },
