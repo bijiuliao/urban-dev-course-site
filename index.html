@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>城鄉、區域與發展 課程讀本摘要</title>
+  <style>
+    body {
+      display: flex;
+      font-family: sans-serif;
+      margin: 0;
+    }
+    #sidebar {
+      width: 220px;
+      background: #f2f2f2;
+      padding: 10px;
+      border-right: 1px solid #ccc;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    #sidebar h3 {
+      cursor: pointer;
+      margin: 10px 0 5px;
+    }
+    #sidebar ul {
+      display: none;
+      list-style-type: none;
+      padding-left: 10px;
+      margin-top: 0;
+    }
+    #sidebar li {
+      margin: 5px 0;
+      cursor: pointer;
+      color: #0077cc;
+    }
+    #main {
+      padding: 20px;
+      flex-grow: 1;
+    }
+    .active {
+      display: block !important;
+    }
+  </style>
+</head>
+<body>
+
+<div id="sidebar">
+  <h2>週次選單</h2>
+
+    <div>
+      <h3 onclick="toggleList('W2')">Week 02</h3>
+      <ul id="W2List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W4')">Week 04</h3>
+      <ul id="W4List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W5')">Week 05</h3>
+      <ul id="W5List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W6')">Week 06</h3>
+      <ul id="W6List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W7')">Week 07</h3>
+      <ul id="W7List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W8')">Week 08</h3>
+      <ul id="W8List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W10')">Week 10</h3>
+      <ul id="W10List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W11')">Week 11</h3>
+      <ul id="W11List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W12')">Week 12</h3>
+      <ul id="W12List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W13')">Week 13</h3>
+      <ul id="W13List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W14')">Week 14</h3>
+      <ul id="W14List"></ul>
+    </div>
+    
+    <div>
+      <h3 onclick="toggleList('W15')">Week 15</h3>
+      <ul id="W15List"></ul>
+    </div>
+    
+</div>
+
+<div id="main">
+  <h2>讀本摘要</h2>
+  <div id="summaryBox">請從左側選擇週次與讀本以查看摘要。</div>
+</div>
+
+<script>
+  let readings = {};
+
+  fetch("data/readings.json")
+    .then(res => res.json())
+    .then(data => {
+      readings = data;
+      for (const week in readings) {
+        const ul = document.getElementById(week + "List");
+        readings[week].readings.forEach((item, idx) => {
+          const li = document.createElement('li');
+          li.textContent = item.title;
+          li.onclick = () => {
+            document.getElementById("summaryBox").innerHTML = `<h3>${item.title}</h3><p>${item.summary || '（尚未提供摘要）'}</p>`;
+          };
+          ul.appendChild(li);
+        });
+      }
+    });
+
+  function toggleList(id) {
+    const ul = document.getElementById(id + "List");
+    ul.classList.toggle("active");
+  }
+</script>
+
+</body>
+</html>
